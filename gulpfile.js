@@ -30,7 +30,7 @@ gulp.task('help', function(){
  * Build
  * Builds all files for production and moves them into the dist directory
  */
-gulp.task('build', ['html', 'images', 'css', 'js', 'vendor', 'buildIndex']);
+gulp.task('build', ['html', 'images', 'css', 'js', 'vendor', 'vendorcss', 'buildIndex']);
 
 /**
  * Default
@@ -75,6 +75,17 @@ gulp.task('css', function () {
 });
 
 /**
+ * Vendor
+ * Concat and uglify all third party javascript and move to dist
+ */
+gulp.task('vendorcss', function () {
+    gulp.src(['bower_components/material-design-lite/material.css'])
+        .pipe(concat('vendor.css'))
+        .pipe(connect.reload())
+        .pipe(gulp.dest('dist/css'));
+});
+
+/**
  * Js
  * Concat and uglify all of our javascript into a single file and move to dist
  */
@@ -104,7 +115,8 @@ gulp.task('js', function () {
 gulp.task('vendor', function () {
     gulp.src(['bower_components/angular/angular.js',
               'bower_components/angular-translate/angular-translate.js',
-              'bower_components/angular-ui-router/release/angular-ui-router.js'])
+              'bower_components/angular-ui-router/release/angular-ui-router.js',
+              'bower_components/material-design-lite/material.js'])
         .pipe(sourcemaps.init())
         .pipe(concat('vendor.js'))
         .pipe(uglify())
@@ -153,6 +165,7 @@ gulp.task('watch', ['build'], function () {
     gulp.watch(['src/images/**/*'], ['images']);
     gulp.watch(['src/**/*.js'], ['js']);
     gulp.watch(['bower_components/**/*.js'], ['vendor']);
+    gulp.watch(['bower_components/**/*.css'], ['vendorcss']);
     gulp.watch(['src/index.html'], ['buildIndex']);
 });
 

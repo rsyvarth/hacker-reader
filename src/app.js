@@ -1,11 +1,15 @@
 'use strict';
 
-var app = angular.module('boilerplate', [
+var app = angular.module('app', [
     'events',
 
     'example',
     'example.exampleModel',
     'example.exampleService',
+
+    'background',
+    'imageGen.imageGenModel',
+    'imageGen.imageGenService',
 
     'ui.router',
     'pascalprecht.translate'
@@ -23,3 +27,12 @@ app.config(['$translateProvider', function ($translateProvider) {
     .preferredLanguage('en')
     .useSanitizeValueStrategy('escape');
 }]);
+
+//register Material Design Light components
+app.run(function ($rootScope,$timeout) {
+    $rootScope.$on('$viewContentLoaded', function(){
+        $timeout(function(){
+            componentHandler.upgradeAllRegistered();
+        });
+    });
+});
