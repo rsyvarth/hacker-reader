@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <base href="/">
 
-    <title>Angular Boilerplate</title>
+    <title>Hacker Reader</title>
 
     <link href="css/vendor.css" rel="stylesheet" type="text/css" />
     <link href="css/main.css" rel="stylesheet" type="text/css" />
@@ -21,8 +21,28 @@
   <body>
     <background></background>
     <div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
+        <header class="mdl-layout__header mdl-layout__header--transparent mdl-layout__header--scroll">
+          <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Hacker Reader</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation -->
+            <nav class="mdl-navigation">
+              <a class="mdl-navigation__link" ui-sref="home">Home</a>
+              <a class="mdl-navigation__link" ui-sref="about">About</a>
+            </nav>
+          </div>
+        </header>
+        <div class="mdl-layout__drawer">
+          <span class="mdl-layout-title">Title</span>
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" ui-sref="home">Home</a>
+            <a class="mdl-navigation__link" ui-sref="about">About</a>
+          </nav>
+        </div>
+
       <main class="mdl-layout__content">
-        <a ui-sref="home">Home</a> | <a ui-sref="about">About</a>  
         <div class="demo-blog__posts mdl-grid" ui-view>
         </div>
 
