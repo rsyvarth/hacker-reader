@@ -1,0 +1,36 @@
+{
+  "name": "angular-boilerplate",
+  "version": "0.0.1",
+  "description": "Opinionated boilerplate Angular app with predefined component structure, Gulp, Sass, Karma, and Mocha",
+  "main": "src/index.html",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-util": "~3.0.6",
+    "gulp-connect": "~2.2.0",
+    "gulp-concat": "~2.6.0",
+    "gulp-sourcemaps": "~1.5.2",
+    "gulp-uglify": "~1.4.1",
+    "gulp-ng-annotate": "~1.1.0",
+    "gulp-sass": "~2.0.4",
+    "karma": "~0.13.9",
+    "mocha": "~2.3.2",
+    "karma-mocha": "~0.2.0",
+    "karma-chrome-launcher": "~0.2.0",
+    "chai": "~3.2.0",
+    "karma-chai": "~0.1.0"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rsyvarth/angular-boilerplate.git"
+  },
+  "author": "Robert Syvarth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rsyvarth/angular-boilerplate/issues"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "angular-boilerplate",
+  "version": "0.0.1",
+  "homepage": "https://github.com/rsyvarth/angular-boilerplate",
+  "authors": [
+    "Robert Syvarth <robert@syvarth.com>"
+  ],
+  "description": "Opinionated boilerplate Angular app with predefined component structure, Gulp, Sass, Karma, and Mocha",
+  "main": "src/index.html",
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.6",
+    "angular-translate": "~2.8.0",
+    "angular-ui-router": "~0.2.15",
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.6"
+  }
+}
