@@ -20,6 +20,7 @@ var imageGenService = Class.extend({
             deferred.resolve(data.data.response);
         }, function(err) {
             console.error(err); //TODO: real error handling
+            deferred.reject(err);
         });
 
         return deferred.promise;

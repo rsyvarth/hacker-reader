@@ -6,7 +6,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     // Now set up the states
     $stateProvider
         .state('home', {
-            url: "/",
+            url: "/:page",
             templateUrl: "partials/home/home.html"
         })
         .state('about', {

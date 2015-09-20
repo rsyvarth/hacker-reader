@@ -3,10 +3,6 @@
 var app = angular.module('app', [
     'events',
 
-    'example',
-    'example.exampleModel',
-    'example.exampleService',
-
     'background',
     'imageGen.imageGenModel',
     'imageGen.imageGenService',

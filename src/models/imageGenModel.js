@@ -17,7 +17,6 @@ var ImageGenModel = Class.extend({
         var deferred = this.$q.defer(); 
 
         this.imageGenService.getRandomImage().then(function(data){
-            console.log(data);
             this.image = data.image.url;
             this.events.notify(models.events.IMAGE_LOADED);
             deferred.resolve(this.image);

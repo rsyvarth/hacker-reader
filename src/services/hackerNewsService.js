@@ -20,6 +20,7 @@ var hackerNewsService = Class.extend({
             deferred.resolve(data.data);
         }, function(err) {
             console.error(err); //TODO: real error handling
+            deferred.reject(err);
         });
 
         return deferred.promise;
@@ -35,6 +36,7 @@ var hackerNewsService = Class.extend({
             deferred.resolve(data.data);
         }, function(err) {
             console.error(err); //TODO: real error handling
+            deferred.reject(err);
         });
 
         return deferred.promise;

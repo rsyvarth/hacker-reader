@@ -1,3 +1,3 @@
 var config = {
-    embedlyApi: ''
+    embedlyApi: '' //put in your embedly api key
 };

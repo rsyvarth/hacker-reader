@@ -22,22 +22,15 @@ var StoryModel = Class.extend({
 
         this.hackerNewsService.getTopStoryIds().then(function(data){
             var ids = data.slice(page,page+limit),
-                promises = [],
-                i = 0;
+                promises = [];
 
             this.stories = [];
 
-            for(; i < ids.length; i++) {
+            for(var i = 0; i < ids.length; i++) {
                 promises.push(this._getDetails(ids[i]));
             }
 
-            this.$q.all(promises).then(function(embeds){
-                console.log(embeds);
-
-                for(i = 0; i < this.stories.length; i++) {
-                    this.stories[i].embed = embeds[i];
-                }
-
+            this.$q.all(promises).then(function(){
                 this.events.notify(models.events.ENTRIES_LOADED);
                 deferred.resolve(this.stories);
             }.bind(this));
@@ -52,17 +45,18 @@ var StoryModel = Class.extend({
 
     _getDetails: function(id) {
         var deferred = this.$q.defer();
+        var story = null;
 
         this.hackerNewsService.getStoryDetails(id).then(function(data){
-            var def2 = this.$q.defer();
             this.stories.push(data);
-            // this.urls.push(data.url);
-            def2.resolve(data);
-            return def2.promise;
-        }.bind(this)).then(function(data){
-            return this.embedService.getEmbed(data.url);
-        }.bind(this)).then(function(data){
-            deferred.resolve(data);
+            story = data;
+        }.bind(this)).then(function(){
+            return this.embedService.getEmbed(story.url);
+        }.bind(this)).then(function(embed){
+            story.embed = embed;
+            deferred.resolve();
+        }, function(){
+            deferred.resolve();
         });
 
         return deferred.promise;
