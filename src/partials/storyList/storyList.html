@@ -1,0 +1,16 @@
+
+<div class="mdl-card on-the-road-again mdl-cell mdl-cell--12-col" ng-repeat="story in stories track by story.id">
+    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image: url({{::story.embed.thumbnail_url}})">
+      <h3><a href="{{::story.url}}">{{::story.title}}</a></h3>
+    </div>
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text" ng-if="story.embed.description">
+      {{::story.embed.description}}
+    </div>
+    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+      <div class="minilogo"></div>
+      <div>
+        <strong>{{::story.embed.provider_name}}</strong>
+        <span am-time-ago="story.time | amFromUnix"></span>
+      </div>
+    </div>
+</div>

@@ -116,6 +116,8 @@ gulp.task('vendor', function () {
     gulp.src(['bower_components/angular/angular.js',
               'bower_components/angular-translate/angular-translate.js',
               'bower_components/angular-ui-router/release/angular-ui-router.js',
+              'bower_components/moment/moment.js',
+              'bower_components/angular-moment/angular-moment.js',
               'bower_components/material-design-lite/material.js'])
         .pipe(sourcemaps.init())
         .pipe(concat('vendor.js'))

@@ -1,6 +1,7 @@
 
 
 @import 'background/background';
+@import 'about/about';
 
 body .demo-blog {
   font-family: 'Roboto', 'Helvetica', sans-serif;
@@ -268,7 +269,9 @@ body .demo-blog {
   font-weight: inherit;
 }
 .demo-blog .mdl-card h3 {
-  margin: 0;
+    margin: 0;
+    background-color: rgba(0,0,0,0.3);
+    padding: 10px;
 }
 .demo-blog .mdl-card h3 a {
   text-decoration: none;

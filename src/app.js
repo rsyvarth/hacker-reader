@@ -11,8 +11,14 @@ var app = angular.module('app', [
     'imageGen.imageGenModel',
     'imageGen.imageGenService',
 
+    'storyList',
+    'story.StoryModel',
+    'hackerNews.hackerNewsService',
+    'embed.embedService',
+
     'ui.router',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'angularMoment'
 ]);
 
 
