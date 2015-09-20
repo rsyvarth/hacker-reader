@@ -19,7 +19,7 @@ var BackgroundDirective = BaseDirective.extend({
     setupScope: function(){
         this.$scope.image = null;
         this.$scope.refreshBackground = this.refreshBackground.bind(this);
-        this.refreshBackground();
+        this.imageGenModel.loadImage();
     },
 
     destroy: function() {
@@ -32,7 +32,7 @@ var BackgroundDirective = BaseDirective.extend({
     },
 
     refreshBackground: function() {
-        this.imageGenModel.loadRandom();
+        this.imageGenModel.loadNewImage();
     }
 
 });

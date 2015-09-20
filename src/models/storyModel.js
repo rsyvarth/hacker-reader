@@ -51,6 +51,7 @@ var StoryModel = Class.extend({
             this.stories.push(data);
             story = data;
         }.bind(this)).then(function(){
+            if(!story.url) { return; }
             return this.embedService.getEmbed(story.url);
         }.bind(this)).then(function(embed){
             story.embed = embed;

@@ -3,6 +3,8 @@
 var app = angular.module('app', [
     'events',
 
+    'storage.persistentStorageService',
+
     'background',
     'imageGen.imageGenModel',
     'imageGen.imageGenService',
