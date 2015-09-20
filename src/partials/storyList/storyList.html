@@ -1,21 +1,30 @@
 
-<div class="mdl-card on-the-road-again mdl-cell mdl-cell--12-col" ng-repeat="story in stories track by story.id">
-    <a href="{{::story.url}}">
-      <div class="mdl-card__media mdl-color-text--grey-50" style="background-image: url({{::story.embed.thumbnail_url}})">
-        <h3>{{::story.title}}</h3>
+<div class="mdl-grid">
+
+  <div class="mdl-card mdl-cell mdl-cell--12-col" ng-show="loading">
+    <!-- MDL Spinner Component -->
+    <div class="mdl-spinner mdl-js-spinner is-active"></div>
+  </div>
+
+  <div class="mdl-card on-the-road-again mdl-cell mdl-cell--12-col" ng-repeat="story in stories track by story.id">
+      <a href="{{::story.url}}">
+        <div class="mdl-card__media mdl-color-text--grey-50" style="background-image: url({{::story.embed.thumbnail_url}})">
+          <h3>{{::story.title}}</h3>
+        </div>
+      </a>
+      <div class="mdl-color-text--grey-600 mdl-card__supporting-text" ng-if="story.embed.description">
+        {{::story.embed.description}}
       </div>
-    </a>
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text" ng-if="story.embed.description">
-      {{::story.embed.description}}
-    </div>
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text" ng-if="story.text">
-      {{::story.text}}
-    </div>
-    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-      <div class="voteCount">{{::story.score}}</div>
-      <div>
-        <strong>{{::story.embed.provider_name}}</strong>
-        <span am-time-ago="story.time | amFromUnix"></span>
+      <div class="mdl-color-text--grey-600 mdl-card__supporting-text" ng-if="story.text">
+        {{::story.text}}
       </div>
-    </div>
+      <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+        <div class="voteCount">{{::story.score}}</div>
+        <div>
+          <strong>{{::story.embed.provider_name}}</strong>
+          <span am-time-ago="story.time | amFromUnix"></span>
+        </div>
+      </div>
+  </div>
+
 </div>

@@ -18,6 +18,7 @@ var StoryListDirective = BaseDirective.extend({
 
     setupScope: function(){
         this.$scope.stories = [];
+        this.$scope.loading = true;
     },
 
     destroy: function() {
@@ -25,6 +26,7 @@ var StoryListDirective = BaseDirective.extend({
     },
 
     storiesLoaded: function() {
+        this.$scope.loading = false;
         this.$scope.stories = this.storyModel.getStories();
     }
 
