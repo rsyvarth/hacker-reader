@@ -15,13 +15,14 @@ var StoryModel = Class.extend({
         this.embedService = EmbedService;
     },
 
-    loadRandom: function(page) {
+    loadStories: function(page) {
         var deferred = this.$q.defer();
         var limit = 20;
-        page = page > 0 ? page : 0; 
+        page = page > 1 ? page : 1; 
 
         this.hackerNewsService.getTopStoryIds().then(function(data){
-            var ids = data.slice(page,page+limit),
+            var offset = (page - 1) * limit;
+            var ids = data.slice(offset, offset+limit),
                 promises = [];
 
             this.stories = [];

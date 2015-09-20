@@ -18,7 +18,6 @@ var StoryListDirective = BaseDirective.extend({
 
     setupScope: function(){
         this.$scope.stories = [];
-        this.storyModel.loadRandom();
     },
 
     destroy: function() {
@@ -27,7 +26,6 @@ var StoryListDirective = BaseDirective.extend({
 
     storiesLoaded: function() {
         this.$scope.stories = this.storyModel.getStories();
-        console.log(this.$scope.stories);
     }
 
 });
