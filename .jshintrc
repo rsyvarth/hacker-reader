@@ -1,0 +1,20 @@
+{
+  "globalstrict": true,
+  "eqeqeq": true,
+  "funcscope": true,
+  "undef": true,
+  "globals": { 
+    "console": false, 
+    "Class": false,
+    "BaseDirective": true,
+    "models": false,
+    "angular": false,
+    "namespace": false,
+    "config": true,
+    "localStorage": false,
+    "translations": true,
+    "componentHandler": false,
+    "app": true,
+    "HomeController": true
+  }
+}

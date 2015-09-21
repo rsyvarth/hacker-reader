@@ -2,7 +2,6 @@
 # General
 node_modules
 bower_components
-**/.*
 
 # App Specific
 dist
