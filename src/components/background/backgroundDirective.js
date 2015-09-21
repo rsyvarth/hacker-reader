@@ -1,51 +1,51 @@
 'use strict';
 
 var BackgroundDirective = BaseDirective.extend({
-    imageGenModel: null,
+  imageGenModel: null,
 
-    init: function($scope, Events, ImageGenModel){
-        this.imageGenModel = ImageGenModel;
-        
-        this._super($scope, Events);
-    },
+  init: function($scope, Events, ImageGenModel) {
+    this.imageGenModel = ImageGenModel;
 
-    addListeners: function(){
-        this._super();
+    this._super($scope, Events);
+  },
 
-        this.imageLoaded = this.imageLoaded.bind(this);
-        this.events.addEventListener(models.events.IMAGE_LOADED, this.imageLoaded);
-    },
+  addListeners: function() {
+    this._super();
 
-    setupScope: function(){
-        this.$scope.image = null;
-        this.$scope.refreshBackground = this.refreshBackground.bind(this);
-        this.imageGenModel.loadImage();
-    },
+    this.imageLoaded = this.imageLoaded.bind(this);
+    this.events.addEventListener(models.events.IMAGE_LOADED, this.imageLoaded);
+  },
 
-    destroy: function() {
-        this._super();
-    },
+  setupScope: function() {
+    this.$scope.image = null;
+    this.$scope.refreshBackground = this.refreshBackground.bind(this);
+    this.imageGenModel.loadImage();
+  },
 
-    imageLoaded: function() {
-        this.$scope.image = this.imageGenModel.getImage();
-        this.$scope.bgStyle = {'background-image': 'url('+this.$scope.image+')'};
-    },
+  destroy: function() {
+    this._super();
+  },
 
-    refreshBackground: function() {
-        this.imageGenModel.loadNewImage();
-    }
+  imageLoaded: function() {
+    this.$scope.image = this.imageGenModel.getImage();
+    this.$scope.bgStyle = {'background-image': 'url(' + this.$scope.image + ')'};
+  },
+
+  refreshBackground: function() {
+    this.imageGenModel.loadNewImage();
+  }
 
 });
 
 angular.module('background',[])
-    .directive('background', function(Events, ImageGenModel){
-    return {
-        restrict:'E',
-        isolate:true,
-        link: function($scope){
-            new BackgroundDirective($scope, Events, ImageGenModel);
-        },
-        scope:true,
-        templateUrl: "partials/background/background.html"
-    };
+  .directive('background', function(Events, ImageGenModel) {
+  return {
+    restrict: 'E',
+    isolate: true,
+    link: function($scope) {
+      new BackgroundDirective($scope, Events, ImageGenModel);
+    },
+    scope: true,
+    templateUrl: 'partials/background/background.html'
+  };
 });

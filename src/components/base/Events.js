@@ -1,3 +1,6 @@
+/* jshint ignore:start */
+/* jscs:disable */
+
 (function () {
    'use strict';
    /**

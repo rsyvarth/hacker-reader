@@ -1,4 +1,7 @@
-/* Based on: 
+/* jshint ignore:start */
+/* jscs:disable */
+
+/* Based on:
  * Simple JavaScript Inheritance
  * By John Resig http://ejohn.org/
  * MIT Licensed.

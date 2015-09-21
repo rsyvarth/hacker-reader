@@ -2,6 +2,8 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
+    jshint = require('gulp-jshint'),
+    jscs = require('gulp-jscs'),
     sourcemaps = require('gulp-sourcemaps'),
     ngAnnotate = require('gulp-ng-annotate'),
     sass = require('gulp-sass'),
@@ -99,6 +101,9 @@ gulp.task('js', function () {
             'src/components/base/*',
             'src/lang/en/lang.js', //Include our lang strings
             'src/**/*.*js'])
+        .pipe(jshint())
+        .pipe(jshint.reporter('jshint-stylish'))
+        .pipe(jscs())
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
         .pipe(ngAnnotate())

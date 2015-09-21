@@ -1,3 +1,6 @@
+/* jshint ignore:start */
+/* jscs:disable */
+
 /**
 * Simple namespace util to extand Class.js functionality
 * and wrap classes in namespace.

@@ -7,6 +7,9 @@
 *
 * @author universalmind.com
 */
+/* jshint ignore:start */
+/* jscs:disable */
+
 var EventDispatcher = Class.extend({
     _listeners:{},
 
