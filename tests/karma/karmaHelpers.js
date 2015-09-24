@@ -1,15 +1,18 @@
 var karmaHelpers = {
     setup: function(type, name) {
-        beforeEach(module('boilerplate'));
+        beforeEach(module('app'));
 
         var $httpBackend;
         beforeEach(inject(function($injector) {
             $httpBackend = $injector.get('$httpBackend');
 
-            create = function() {
+            create = function(mock) {
                 if(typeof name == 'function') {
                     name();
                     return obj;
+                }
+                if(typeof mock == 'function') {
+                    mock($httpBackend);
                 }
                 return $injector.get(name);
             };
