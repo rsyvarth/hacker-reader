@@ -1,5 +1,5 @@
 # Hacker Reader
-A simple hacker news interface with link previews. Made using Hacker News' [api](https://github.com/HackerNews/API) and [embed.ly](http://embed.ly/)
+A simple hacker news interface with link previews. Made using Hacker News' [api](https://github.com/HackerNews/API), [embed.ly](http://embed.ly/), and [desktoppr](https://www.desktoppr.co/).
 
 Application structure based on my [angular boilerplate](https://github.com/rsyvarth/angular-boilerplate).
 
