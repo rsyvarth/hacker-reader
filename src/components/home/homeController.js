@@ -35,7 +35,7 @@ var HomeController = Class.extend({
   setupScope: function() {
     // Cast the page number to an integer (params are strings by default)
     this.$scope.currPage = Number(this.$stateParams.page);
-    this.$scope.showRead = this.readMarkerModel.getReadFilter();
+    this.$scope.showRead = this.readMarkerModel.getReadFilterDisabled();
 
     this.$scope.toggleFilter = this.toggleFilter.bind(this);
 
