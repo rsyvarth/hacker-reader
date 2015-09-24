@@ -5,7 +5,8 @@ var BaseDirective = Class.extend({
   events: null,
 
   init: function($scope, Events) {
-    //These errors are just informational, they won't stop execution
+    // These errors are just informational, they won't stop execution
+    // Helps debug issues where children don't pass params to _super() though
     if (!$scope) {
       console.error('BaseDirective::init() - Missing required argument $scope');
     }

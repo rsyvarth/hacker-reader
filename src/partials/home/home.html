@@ -2,7 +2,7 @@
   <div class="mdl-layout-spacer"></div>
   <label class="mdl-switch md-cell mdl-cell--2-col mdl-js-switch mdl-js-ripple-effect">
     <input type="checkbox" class="mdl-switch__input" ng-model="showRead" ng-click="toggleFilter()" />
-    <span class="mdl-switch__label">Show Read</span>
+    <span class="mdl-switch__label" translate>HOME.SHOW_READ</span>
   </label>
 </div>
 
@@ -13,13 +13,13 @@
       <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
         <i class="material-icons">arrow_back</i>
       </button>
-      Back
+      <span translate>HOME.BACK</span>
     </a>
 
     <div class="section-spacer"></div>
 
     <a ui-sref="home({page: {{currPage+1}} })" class="demo-nav__button">
-      Forward
+      <span translate>HOME.FORWARD</span>
       <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
         <i class="material-icons">arrow_forward</i>
       </button>

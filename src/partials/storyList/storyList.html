@@ -9,8 +9,8 @@
   <div class="mdl-card on-the-road-again mdl-cell mdl-cell--12-col" ng-repeat="story in stories track by story.id">
       <a href="{{::story.url}}" target="_blank" ng-click="setRead(story)">
         <div class="mdl-card__media mdl-color-text--grey-50" style="background-image: url({{::story.embed.thumbnail_url}})">
-          <i class="material-icons" ng-show="!story.read" ng-click="toggleRead($event, story)">check_box_outline_blank</i>
-          <i class="material-icons" ng-show="story.read" ng-click="toggleRead($event, story)">check_box</i>
+          <i class="material-icons" ng-show="!story.read" ng-click="toggleRead($event, story)" translate-attr-title="HOME.UNREAD" translate>check_box_outline_blank</i>
+          <i class="material-icons" ng-show="story.read" ng-click="toggleRead($event, story)" translate-attr-title="HOME.READ" translate>check_box</i>
           <h3>{{::story.title}}</h3>
         </div>
       </a>

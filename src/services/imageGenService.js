@@ -1,15 +1,27 @@
 'use strict';
 
+/**
+ * Image Generator Service
+ *
+ * Uses the Desktoppr api in order to pull random
+ * background images
+ */
 var ImageGenService = Class.extend({
   $q: null,
   $http: null,
   baseUrl: 'https://api.desktoppr.co/1',
 
+  /**
+   * Class init
+   */
   init: function($q, $http) {
     this.$q = $q;
     this.$http = $http;
   },
 
+  /**
+   * Pulls a random background image from Desktoppr
+   */
   getRandomImage: function() {
     var deferred = this.$q.defer();
 

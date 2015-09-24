@@ -1,7 +1,17 @@
 'use strict';
 
+/**
+ * Define the IMAGE_LOADED event which this model emits
+ */
 namespace('models.events').IMAGE_LOADED = 'ImageGenModel.IMAGE_LOADED';
 
+/**
+ * Image Generator Model
+ *
+ * This model provides a large random background image for
+ * use as the site's background image. It also uses persistent
+ * storage to save the latest background image between page loads
+ */
 var ImageGenModel = Class.extend({
   image: null,
   events: null,
@@ -9,6 +19,9 @@ var ImageGenModel = Class.extend({
   imageGenService: null,
   storage: null,
 
+  /**
+   * Init class
+   */
   init: function(Events, $q, ImageGenService, PersistentStorageService) {
     this.events = Events;
     this.$q = $q;
@@ -16,6 +29,10 @@ var ImageGenModel = Class.extend({
     this.storage = PersistentStorageService;
   },
 
+  /**
+   * Retrieves the saved image if one exists, otherwise it returns a new image
+   * Fires the IMAGE_LOADED event once the image is loaded.
+   */
   loadImage: function() {
     var saved = this.storage.get('imageGen-saved');
     if (!saved) {
@@ -28,19 +45,24 @@ var ImageGenModel = Class.extend({
 
     var deferred = this.$q.defer();
 
-    this.image = saved;
+    this.setImage(saved);
+
     this.events.notify(models.events.IMAGE_LOADED);
     deferred.resolve(this.image);
 
     return deferred.promise;
   },
 
+  /**
+   * Load a new (random) image and save it to persistent storage.
+   * Fires the IMAGE_LOADED event once the image is loaded.
+   */
   loadNewImage: function() {
     var deferred = this.$q.defer();
 
     this.imageGenService.getRandomImage().then(function(data) {
-      this.image = data.image.url;
-      this.storage.set('imageGen-saved', this.image);
+      this.setImage(data.image.url);
+
       this.events.notify(models.events.IMAGE_LOADED);
       deferred.resolve(this.image);
     }.bind(this));
@@ -48,6 +70,17 @@ var ImageGenModel = Class.extend({
     return deferred.promise;
   },
 
+  /**
+   * Sets the current image and persists it
+   */
+  setImage: function(img) {
+    this.image = img;
+    this.storage.set('imageGen-saved', this.image);
+  },
+
+  /**
+   * Returns the current image
+   */
   getImage: function() {
     return this.image;
   }

@@ -1,15 +1,28 @@
 'use strict';
 
+/**
+ * Hacker News Service
+ *
+ * Provides an interface for Hacker News' api
+ * so that we can pull top stories and their
+ * corresponding data
+ */
 var HackerNewsService = Class.extend({
   $q: null,
   $http: null,
   baseUrl: 'https://hacker-news.firebaseio.com/v0',
 
+  /**
+   * Init class
+   */
   init: function($q, $http) {
     this.$q = $q;
     this.$http = $http;
   },
 
+  /**
+   * Pull a list of the top 500 most popular stories
+   */
   getTopStoryIds: function() {
     var deferred = this.$q.defer();
 
@@ -26,6 +39,9 @@ var HackerNewsService = Class.extend({
     return deferred.promise;
   },
 
+  /**
+   * Pull detains for a particular story by id
+   */
   getStoryDetails: function(id) {
     var deferred = this.$q.defer();
 

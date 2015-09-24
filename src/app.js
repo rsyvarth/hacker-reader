@@ -20,19 +20,20 @@ var app = angular.module('app', [
   'angularMoment'
 ]);
 
+// HTML5 mode allows for routes without the # on modern browsers
 app.config(function($locationProvider) {
   $locationProvider.html5Mode(true);
 });
 
+// Enabled default translation
 app.config(['$translateProvider', function($translateProvider) {
-  // add translation table
   $translateProvider
     .translations('en', translations) //translations is set in lang/en/lang.js
     .preferredLanguage('en')
     .useSanitizeValueStrategy('escape');
 }]);
 
-//register Material Design Light components
+// Register Material Design Light components on view change
 app.run(function($rootScope, $timeout) {
   $rootScope.$on('$viewContentLoaded', function() {
     $timeout(function() {
