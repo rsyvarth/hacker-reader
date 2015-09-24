@@ -3,6 +3,8 @@ A simple hacker news interface with link previews. Made using Hacker News' [api]
 
 Application structure based on my [angular boilerplate](https://github.com/rsyvarth/angular-boilerplate).
 
+You can view a hosted preview of the site [here](http://hacker-reader.syvarth.com/).
+
 ## Getting Started
 Install Node.js then complete the following steps
 ```
