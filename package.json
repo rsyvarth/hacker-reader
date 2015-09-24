@@ -22,7 +22,9 @@
     "karma-chai": "~0.1.0",
     "karma-chrome-launcher": "~0.2.0",
     "karma-mocha": "~0.2.0",
-    "mocha": "~2.3.2"
+    "karma-sinon-chai": "^1.1.0",
+    "mocha": "~2.3.2",
+    "sinon": "^1.17.0"
   },
   "scripts": {
     "test": "gulp test"
