@@ -2,14 +2,30 @@
 story-list {
     width: 100%;
 
-    .mdl-card h3 {
-        margin: 0;
-        background-color: rgba(0, 0, 0, 0.3);
-        padding: 10px;
-        position: absolute;
-        bottom: 25px;
-        right: 0;
-        left: 25px;
+    .mdl-grid {
+        padding: 0px;
+    }
+
+    .mdl-card {
+        .material-icons {
+            float: right;
+            opacity: 0.5;
+            margin-top: -2px;
+
+            &:hover {
+                opacity: 1;
+            }
+        }        
+
+        h3 {
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            position: absolute;
+            bottom: 25px;
+            right: 0;
+            left: 25px;
+        }
     }
 
     .voteCount {

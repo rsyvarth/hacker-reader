@@ -19,6 +19,9 @@ var StoryListDirective = BaseDirective.extend({
   setupScope: function() {
     this.$scope.stories = [];
     this.$scope.loading = true;
+
+    this.$scope.toggleRead = this.toggleRead.bind(this);
+    this.$scope.setRead = this.setRead.bind(this);
   },
 
   destroy: function() {
@@ -27,7 +30,20 @@ var StoryListDirective = BaseDirective.extend({
 
   storiesLoaded: function() {
     this.$scope.loading = false;
+
+    this.$scope.stories = [];
     this.$scope.stories = this.storyModel.getStories();
+  },
+
+  toggleRead: function($event, story) {
+    this.storyModel.setRead(story, !story.read);
+
+    $event.preventDefault();
+    $event.stopPropagation();
+  },
+
+  setRead: function(story) {
+    this.storyModel.setRead(story, true);
   }
 
 });

@@ -11,6 +11,7 @@ var app = angular.module('app', [
 
   'storyList',
   'story.StoryModel',
+  'story.ReadMarkerModel',
   'hackerNews.hackerNewsService',
   'embed.embedService',
 

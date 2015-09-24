@@ -1,4 +1,4 @@
 {
     "preset": "google",
-    "maximumLineLength": 100
+    "maximumLineLength": false
 }

@@ -19,7 +19,11 @@ var ImageGenModel = Class.extend({
   loadImage: function() {
     var saved = this.storage.get('imageGen-saved');
     if (!saved) {
-      return this.loadNewImage();
+      // I was originally going to make this load a random background if you didn't
+      // have one saved in localstorage but I decided to throw in a sane default
+      // so your first experience doesn't ever end up being an ugly/poorly contrasting bg
+      // return this.loadNewImage();
+      saved = 'http://a.desktopprassets.com/wallpapers/544b5871ff1bee38e5643fc9ab97a8cdfc16fc68/03826_rockwoodandwater_2880x1800.jpg';
     }
 
     var deferred = this.$q.defer();

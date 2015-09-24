@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     ngAnnotate = require('gulp-ng-annotate'),
     sass = require('gulp-sass'),
     karma = require('karma').Server,
+    plumber = require('gulp-plumber')
     connect = require('gulp-connect');
 
 /**
@@ -101,6 +102,7 @@ gulp.task('js', function () {
             'src/components/base/*',
             'src/lang/en/lang.js', //Include our lang strings
             'src/**/*.*js'])
+        .pipe(plumber())
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(jscs())

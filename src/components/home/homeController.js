@@ -5,12 +5,14 @@ var HomeController = Class.extend({
   events: null,
   storyModel: null,
   $stateParams: null,
+  readMarkerModel: null,
 
-  init: function($scope, Events, StoryModel, $stateParams) {
+  init: function($scope, Events, StoryModel, $stateParams, ReadMarkerModel) {
     this.$scope = $scope;
     this.events = Events;
     this.storyModel = StoryModel;
     this.$stateParams = $stateParams;
+    this.readMarkerModel = ReadMarkerModel;
 
     this.setupScope();
   },
@@ -18,10 +20,17 @@ var HomeController = Class.extend({
   setupScope: function() {
     // Cast the page number to an integer, save on scope for pagination
     this.$scope.currPage = +this.$stateParams.page;
-    console.log(this.$stateParams);
+    this.$scope.showRead = this.readMarkerModel.getReadFilter();
+    this.$scope.toggleFilter = this.toggleFilter.bind(this);
+
+    this.storyModel.loadStories(this.$scope.currPage);
+  },
+
+  toggleFilter: function() {
+    this.readMarkerModel.setFilter(this.$scope.showRead);
     this.storyModel.loadStories(this.$scope.currPage);
   }
 
 });
 
-HomeController.$inject = ['$scope', 'Events', 'StoryModel', '$stateParams'];
+HomeController.$inject = ['$scope', 'Events', 'StoryModel', '$stateParams', 'ReadMarkerModel'];
